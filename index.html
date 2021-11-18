@@ -38,7 +38,7 @@
     <section id="scene1" class="scene">
         <h1>Scène 1</h1>
         <p>Une fois passé le trigger central, cette scène se fixe pendant 500 px de scroll. Le % de scroll est affiché ici : <span class="scroll"></span><br>
-          Elle applique également une animation au titre "Scène 1" en réduiant progressivement sa marge gauche.
+          Elle applique également une animation au titre "Scène 1" en réduisant progressivement sa marge gauche.
         </p>
     </section>
 
@@ -69,7 +69,7 @@
   <!-- Début de la scène 2 -->
     <section id="scene2" class="scene">
       <h2>Scène 2</h2>
-      <p>Cette scène affiche progressivement 3 paragraphes en leur appliqant un effet d'opacité à une vitesse différente (en CSS)</p>
+      <p>Cette scène affiche progressivement 3 paragraphes en leur appliquant un effet d'opacité à une vitesse différente (en CSS)</p>
       <div class="p-container">
         <p id="scene2-p1">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.
         </p>
@@ -102,6 +102,7 @@
 
     <section id="scene3" class="scene">
       <h2>Scène 3 : images</h2>
+      <p>Ici le "trigger" est déplacé en haut de page, ce qui permet de fixer la scène en haut et non au milieu. Ensuite le défilement permet de passer les images une à une avant de reprendre le défilement.</p>
       <img src="assets/image1.jpg" id="scene3-img-1">
       <img src="assets/image2.jpg" id="scene3-img-2">
       <img src="assets/image3.jpg" id="scene3-img-3">
@@ -139,6 +140,7 @@
 
   <section id="scene4" class="scene">
     <h2>Scène 4 : vidéo</h2>
+    <p>Lancement automatique de la vidéo. Le "trigger" est également situé en haut</p>
     <video
       id="myVideo"
       muted
@@ -180,7 +182,7 @@
 
 <section id="scene5" class="scene">
   <h2>Scène 5 : audio</h2>
-  <p>Cette scène jour automatiquement un son (seulement si l'utilisateur a déjà cliqué sur la page). Elle change le fond de la page en appliquant un style css à la balise &lt;body&gt;</p>
+  <p>Cette scène joue automatiquement un son (seulement si l'utilisateur a déjà cliqué sur la page). Et elle change le fond de la page en appliquant un style css à la balise &lt;body&gt;</p>
   <audio
     id="myAudio"
     controls
@@ -220,7 +222,7 @@ var tweenBlackBody = new TweenMax.to('body', 5, {
 
 <section id="scene6" class="scene">
   <h2>Scène 6 : p5.js</h2>
-  <p>Ici le % de scroll est directement passé au canvas p5.js pour faire tourner la sphère et grandir les barres blanches (pour des graphiques par exemple).</p>
+  <p>Ici le % de scroll est directement passé au canvas p5.js via une variable, afin faire tourner la sphère et d'agrandir les barres blanches (pour des graphiques par exemple).</p>
   <div id="canvas-container">
   </div>
 </section>
