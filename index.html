@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ScrollMagic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript">
+      // initialisation de ScrollMagic
+      var controller = new ScrollMagic.Controller();
+
+      let index = 10;
+
+      $('body').trigger('click');
+    </script>
+  </head>
+  <body>
+
+  <nav>
+    <ul>
+      <li id="menu-item-1"><span></span><a href="#scene1">Scène 1</a></li>
+      <li id="menu-item-2"><span></span><a href="#scene2">Scène 2</a></li>
+      <li id="menu-item-3"><span></span><a href="#scene3">Scène 3</a></li>
+      <li id="menu-item-4"><span></span><a href="#scene4">Scène 4</a></li>
+      <li id="menu-item-5"><span></span><a href="#scene5">Scène 5</a></li>
+      <li id="menu-item-6"><span></span><a href="#scene6">Scène 6</a></li>
+    </ul>
+  </nav>
+
+  <!-- Début de la scène 1 : html + javascript à la suite -->
+
+    <section id="scene1" class="scene">
+        <h1>Scène 1</h1>
+        <p>Une fois passé le trigger central, cette scène se fixe pendant 500 px de scroll. Le % de scroll est affiché ici : <span class="scroll"></span><br>
+          Elle applique également une animation au titre "Scène 1" en réduiant progressivement sa marge gauche.
+        </p>
+    </section>
+
+    <script type="text/javascript">
+      // Création de l'animation tween 1
+    var scene1Tween = new TweenMax.to('#scene1 h1', 1.5, {
+      paddingLeft: '0px'
+    });
+
+    // Définition du comportement de la première scène ScrollMagic
+    var scene1Scene = new ScrollMagic.Scene({
+        triggerElement: '#scene1',
+        duration: 500 // durée en nombre de pixels
+    })
+    .setTween(scene1Tween) // on affecte la tween
+    .setPin('#scene1') // on bloque pendant 500 px
+    .addIndicators() // on ajoute les repères
+    .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+      let prct = Math.round(event.progress * 100) + "%";
+      $('#scene1 span').text(prct);
+      $('#menu-item-1 span').css('width',prct)
+    })
+    .addTo(controller); // on ajoute la sscène au controller global défini tout en haut
+  </script>
+
+  <!-- Fin de la scène 1 -->
+
+  <!-- Début de la scène 2 -->
+    <section id="scene2" class="scene">
+      <h2>Scène 2</h2>
+      <p>Cette scène affiche progressivement 3 paragraphes en leur appliqant un effet d'opacité à une vitesse différente (en CSS)</p>
+      <div class="p-container">
+        <p id="scene2-p1">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.
+        </p>
+      <p id="scene2-p2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      <p id="scene2-p3">Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        </p>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+          var scene2 = new ScrollMagic.Scene({
+            triggerElement: '#scene2',
+            duration:500
+            //triggerHook: 0.1
+          })
+          .setClassToggle("body", "b")
+          .setClassToggle("#scene2 .p-container p", "full-opacity")
+          .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+            let prct = Math.round(event.progress * 100) + "%";
+            $('#menu-item-2 span').css('width',prct)
+          })
+          .addIndicators()
+          .addTo(controller);
+    </script>
+
+      <!-- Fin de la scène 2 -->
+
+      <!-- Début de la scène 3 -->
+
+    <section id="scene3" class="scene">
+      <h2>Scène 3 : images</h2>
+      <img src="assets/image1.jpg" id="scene3-img-1">
+      <img src="assets/image2.jpg" id="scene3-img-2">
+      <img src="assets/image3.jpg" id="scene3-img-3">
+      <img src="assets/image4.jpg" id="scene3-img-4">
+      <img src="assets/image5.jpg" id="scene3-img-5">
+      <img src="assets/image6.jpg" id="scene3-img-6">
+    </section>
+
+    <script type="text/javascript">
+
+      var scene3 = new ScrollMagic.Scene({
+        triggerElement: '#scene3',
+        triggerHook:0,
+        duration:2500
+      })
+      .setPin('#scene3')
+      .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+        let prct = Math.round(event.progress * 100);
+        let percent = prct / (100);
+        let numImg = Math.round(percent * (6 - 1) + 1);
+        $('#scene3-img-'+numImg)
+        .css('z-index',index)
+        .fadeIn();
+        console.log(numImg);
+        $('#menu-item-3 span').css('width',prct+'%');
+        index+=1;
+      })
+      .addIndicators()
+      .addTo(controller);
+    </script>
+
+    <!-- Fin de la scène 3 -->
+
+    <!-- Début de la scène 4 -->
+
+  <section id="scene4" class="scene">
+    <h2>Scène 4 : vidéo</h2>
+    <video
+      id="myVideo"
+      muted
+      controls
+      preload="auto"
+      width="800"
+      height="600"
+      poster="assets/poster.png"
+    >
+      <source src="assets/sample.mp4" type="video/mp4" />
+      <source src="assets/sample.webm" type="video/webm" />
+    </video>
+  </section>
+
+  <script type="text/javascript">
+    var scene4 = new ScrollMagic.Scene({
+      triggerElement: '#scene4',
+      triggerHook:0, //déclenchement en haut
+      duration:500
+    })
+    .setPin('#scene4') // on bloque pendant 500 px
+    .on("enter", function (event) {
+      $('#scene4 video').trigger('play');
+    })
+    .on("leave", function (event) {
+      $('#scene4 video').trigger('pause');
+    })
+    .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+      let prct = Math.round(event.progress * 100) + "%";
+      $('#menu-item-4 span').css('width',prct)
+    })
+    .addIndicators()
+    .addTo(controller);
+  </script>
+
+  <!-- Fin de la scène 4 -->
+
+  <!-- Début de la scène 5 -->
+
+<section id="scene5" class="scene">
+  <h2>Scène 5 : audio</h2>
+  <p>Cette scène jour automatiquement un son (seulement si l'utilisateur a déjà cliqué sur la page). Elle change le fond de la page en appliquant un style css à la balise &lt;body&gt;</p>
+  <audio
+    id="myAudio"
+    controls
+  >
+    <source src="https://archive.org/download/cd_dark-side-of-the-moon_pink-floyd/disc1/01.%20Pink%20Floyd%20-%20Speak%20to%20Me%20-%20Breathe_sample.mp3" type="audio/mp3" />
+  </audio>
+</section>
+
+<script type="text/javascript">
+var tweenBlackBody = new TweenMax.to('body', 5, {
+  backgroundColor: '#81b9ad'
+});
+
+  var scene5 = new ScrollMagic.Scene({
+    triggerElement: '#scene5',
+    duration:300
+  })
+  .setTween(tweenBlackBody)
+  .setPin('#scene4') // on bloque pendant 200 px
+  .on("enter", function (event) {
+    $('#scene5 audio').trigger('play');
+  })
+  .on("leave", function (event) {
+    $('#scene5 audio').trigger('pause');
+  })
+  .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+    let prct = Math.round(event.progress * 100) + "%";
+    $('#menu-item-5 span').css('width',prct)
+  })
+  .addIndicators()
+  .addTo(controller);
+</script>
+
+<!-- Fin de la scène 5 -->
+
+  <!-- Début de la scène 6 -->
+
+<section id="scene6" class="scene">
+  <h2>Scène 6 : p5.js</h2>
+  <p>Ici le % de scroll est directement passé au canvas p5.js pour faire tourner la sphère et grandir les barres blanches (pour des graphiques par exemple).</p>
+  <div id="canvas-container">
+  </div>
+</section>
+
+<script type="text/javascript">
+  let p = 0;
+  var scene6 = new ScrollMagic.Scene({
+    triggerElement: '#scene6',
+    triggerHook:0, //déclenchement en haut
+    duration:1000
+  })
+  .setPin('#scene6') // on bloque pendant 1000 px
+  .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
+    p = event.progress;
+    let prct = Math.round(event.progress * 100) + "%";
+    $('#menu-item-6 span').css('width',prct)
+  })
+  .addIndicators()
+  .addTo(controller);
+</script>
+<script src="js/scripts.js" charset="utf-8"></script>
+
+<!-- Fin de la scène 6 -->
+
+
+<script type="text/javascript">
+  // change behaviour of controller to animate scroll instead of jump
+controller.scrollTo(function (newpos) {
+  TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
+});
+
+//  bind scroll to anchor links
+$(document).on("click", "a[href^='#']", function (e) {
+  var id = $(this).attr("href");
+  if ($(id).length > 0) {
+    e.preventDefault();
+
+    // trigger scroll
+    controller.scrollTo(id);
+
+      // if supported by the browser we can even update the URL.
+    if (window.history && window.history.pushState) {
+      history.pushState("", document.title, id);
+    }
+  }
+});
+
+</script>
+  </body>
+</html>

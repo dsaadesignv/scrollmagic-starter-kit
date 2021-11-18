@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,700;1,300;1,700&display=swap');
+
+body{
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding:0;
+  margin:0;
+  background: #97eeda;
+}
+
+/* S'applique à toutes les scènes */
+.scene{
+  margin: 600px 0;
+  padding:20px;
+  padding-left:200px;
+}
+
+.scene p{
+  width: 30%;
+}
+
+/* Styles généraux */
+
+.full-opacity{
+  opacity:1 !important;
+  transition:all 5s;
+}
+
+.scroll{
+  color:white;
+}
+
+/* Navigation */
+nav{
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index: 99;
+}
+nav ul{
+  padding: 0;
+  margin:0;
+}
+nav ul li{
+  list-style-type: none;
+  position: relative;
+  margin-bottom:5px;
+  padding-bottom:3px;
+}
+
+nav ul li span{
+  position: absolute;
+  bottom:0;
+  left:0;
+  background:#ED5A5A;
+  width:0%;
+  height:3px;
+}
+
+nav ul li a{
+  color:#000;
+  text-decoration:none;
+}
+
+nav ul li a:hover{
+  color:#ED5A5A;
+}
+
+/* Scènes */
+#scene1 h1{
+  padding-left:500px;
+}
+
+.p-container{
+  display:flex;
+}
+
+.p-container p{
+  width:30%;
+  opacity:0;
+}
+
+
+#scene2-p1{
+  transition:all .3s
+}
+
+#scene2-p2{
+  transition:all 1s
+}
+
+#scene2-p3{
+  transition:all 2s
+}
+
+#scene3{
+  position:relative;
+  height:100vh;
+}
+
+#scene3 img{
+  max-width:100%;
+}
+
+#scene3 img{
+  display:none;
+  position:absolute;
+  top:100px;
+  height:90vh;
+  min-width:90vh;
+}
+
+#scene3-img-1{
+  display: block !important;
+}
+
+#scene4 video{
+  width:100%;
+  height:auto;
+}
