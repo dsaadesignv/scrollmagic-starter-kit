@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>ScrollMagic</title>
+    <title>Scroligraphie</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
@@ -22,6 +22,10 @@
   </head>
   <body>
 
+  <div id="mask">
+
+  </div>
+
   <nav>
     <ul>
       <li id="menu-item-1"><span></span><a href="#scene1">Scène 1</a></li>
@@ -38,7 +42,7 @@
     <section id="scene1" class="scene">
         <h1>Scène 1</h1>
         <p>Une fois passé le trigger central, cette scène se fixe pendant 500 px de scroll. Le % de scroll est affiché ici : <span class="scroll"></span><br>
-          Elle applique également une animation au titre "Scène 1" en réduisant progressivement sa marge gauche.
+          Elle applique 3 animations : au titre "Scène 1" en réduisant progressivement sa marge gauche ; à la div #mask en réduisant son opacité ; et à la barre de soulignement en en haut à gauche.<br>
         </p>
     </section>
 
@@ -58,8 +62,11 @@
     .addIndicators() // on ajoute les repères
     .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
       let prct = Math.round(event.progress * 100) + "%";
+      let o = event.progress;
+      console.log(o);
       $('#scene1 span').text(prct);
-      $('#menu-item-1 span').css('width',prct)
+      $('#menu-item-1 span').css('width',prct);
+      $('#mask').css('opacity',1-o);
     })
     .addTo(controller); // on ajoute la sscène au controller global défini tout en haut
   </script>
@@ -193,7 +200,7 @@
 
 <script type="text/javascript">
 var tweenBlackBody = new TweenMax.to('body', 5, {
-  backgroundColor: '#81b9ad'
+  backgroundColor: '#50756e'
 });
 
   var scene5 = new ScrollMagic.Scene({
