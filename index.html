@@ -94,12 +94,13 @@
             duration:500
             //triggerHook: 0.1
           })
-          .setClassToggle("body", "b")
-          .setClassToggle("#scene2 .p-container p", "full-opacity")
           .setClassToggle("#menu-item-2", "bold")
           .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
             let prct = Math.round(event.progress * 100) + "%";
             $('#menu-item-2 span').css('width',prct);
+          })
+          .on("enter",function(){
+            $("#scene2 .p-container p").addClass("full-opacity")
           })
           .addIndicators()
           .addTo(controller);
