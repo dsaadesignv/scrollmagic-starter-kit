@@ -60,6 +60,7 @@
     .setTween(scene1Tween) // on affecte la tween
     .setPin('#scene1') // on bloque pendant 500 px
     .addIndicators() // on ajoute les repères
+    .setClassToggle("#menu-item-1", "bold") // toggle de la classe bold pour le menu à gauche
     .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
       let prct = Math.round(event.progress * 100) + "%";
       let o = event.progress;
@@ -95,9 +96,10 @@
           })
           .setClassToggle("body", "b")
           .setClassToggle("#scene2 .p-container p", "full-opacity")
+          .setClassToggle("#menu-item-2", "bold")
           .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
             let prct = Math.round(event.progress * 100) + "%";
-            $('#menu-item-2 span').css('width',prct)
+            $('#menu-item-2 span').css('width',prct);
           })
           .addIndicators()
           .addTo(controller);
@@ -126,6 +128,7 @@
         duration:2500
       })
       .setPin('#scene3')
+      .setClassToggle("#menu-item-3", "bold") // toggle de la classe bold pour le menu à gauche
       .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
         let prct = Math.round(event.progress * 100);
         let percent = prct / (100);
@@ -169,6 +172,7 @@
       duration:500
     })
     .setPin('#scene4') // on bloque pendant 500 px
+    .setClassToggle("#menu-item-4", "bold") // toggle de la classe bold pour le menu à gauche
     .on("enter", function (event) {
       $('#scene4 video').trigger('play');
     })
@@ -209,6 +213,7 @@ var tweenBlackBody = new TweenMax.to('body', 5, {
   })
   .setTween(tweenBlackBody)
   .setPin('#scene4') // on bloque pendant 200 px
+  .setClassToggle("#menu-item-5", "bold") // toggle de la classe bold pour le menu à gauche
   .on("enter", function (event) {
     $('#scene5 audio').trigger('play');
   })
@@ -242,6 +247,7 @@ var tweenBlackBody = new TweenMax.to('body', 5, {
     duration:1000
   })
   .setPin('#scene6') // on bloque pendant 1000 px
+  .setClassToggle("#menu-item-6", "bold") // toggle de la classe bold pour le menu à gauche
   .on("progress", function (event) { // on écrit le pourcentage d'avancée de la scène (entre 1 et 500px)
     p = event.progress;
     let prct = Math.round(event.progress * 100) + "%";
