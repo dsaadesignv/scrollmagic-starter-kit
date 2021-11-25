@@ -137,3 +137,19 @@ nav ul li a:hover{
   width:100%;
   height:auto;
 }
+
+@media only screen and (max-width: 768px) {
+  .scene{
+    margin: 600px 0;
+    padding:20px;
+  }
+  .scene p{
+    width: 100%;
+  }
+  .p-container{
+    display: block;
+  }
+  .p-container p{
+    width:100%;
+  }
+}
