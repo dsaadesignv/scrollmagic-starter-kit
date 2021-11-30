@@ -138,6 +138,10 @@ nav ul li a:hover{
   height:auto;
 }
 
+#scene7 h2{
+  opacity: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .scene{
     margin: 600px 0;

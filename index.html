@@ -208,7 +208,7 @@
 
 <script type="text/javascript">
 var tweenBlackBody = new TweenMax.to('body', 5, {
-  backgroundColor: '#50756e'
+  backgroundColor: '#b5b8b7'
 });
 
   var scene5 = new ScrollMagic.Scene({
@@ -260,10 +260,40 @@ var tweenBlackBody = new TweenMax.to('body', 5, {
   .addIndicators()
   .addTo(controller);
 </script>
-<script src="js/scripts.js" charset="utf-8"></script>
 
 <!-- Fin de la scène 6 -->
 
+<!-- Début de la scène 7 -->
+
+
+<section id="scene7" class="scene">
+  <h2>Scène 7 : bases TweenMax</h2>
+</section>
+
+<script type="text/javascript">
+var scene7Tween = new TweenMax.to('#scene7 h2', 1, {
+  opacity: 1
+});
+
+
+  var scene7 = new ScrollMagic.Scene({
+    triggerElement: '#scene7',
+    duration:1000
+  })
+  .setTween(scene7Tween)
+  .setPin('#scene7') // on bloque pendant 1000 px
+  .addIndicators()
+  .addTo(controller);
+</script>
+
+
+
+
+
+
+
+
+<script src="js/scripts.js" charset="utf-8"></script>
 
 <script type="text/javascript">
   // change behaviour of controller to animate scroll instead of jump
