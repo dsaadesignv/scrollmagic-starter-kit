@@ -1,1 +1,1 @@
-# Starter kit pour ScrollMagic
+# Starter kit fot the ScrollMagic library 🎩
